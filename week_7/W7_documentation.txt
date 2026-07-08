@@ -1,0 +1,29 @@
+WEEK 7 - TUTORIAL 7 DOCUMENTATION
+
+1. Bugs identified in main.py (original template):
+   - Missing import statement: 'from food_order import calculate_total' was not present.
+   - Missing function call: 'total = calculate_total(price, quantity)' was not written.
+   - No input validation: non-numeric inputs caused ValueError crashes.
+   - No check for negative values: negative price/quantity produced negative totals.
+
+2. Fixes applied:
+   - Added the correct import and total calculation.
+   - Wrapped inputs in try/except loops to handle non-numeric entries gracefully.
+   - Moved validation of negative values into calculate_total (food_order.py).
+   - In main.py, check if result is a string (error) and print it; otherwise print formatted total.
+
+3. Testing with pytest:
+   - Installed pytest using 'pip install pytest'.
+   - Wrote six test cases in test_food_order.py:
+       1. test_order1: 10, 2  -> 20
+       2. test_order2: 10, 3  -> 30
+       3. test_order3: 20, 5  -> 100
+       4. test_order4: 5, 2   -> 10
+       5. test_order5: -1, 5  -> "invalid price"
+       6. test_order6: 10, -2 -> "invalid quantity"
+   - Run tests with: pytest test_food_order.py -v
+   - All tests pass after corrections.
+
+4. Extra consideration:
+   - The original instructions mentioned 'test_calculate_food.py' but the code block used 'test_food_order.py'. We followed the code block name.
+   - The function name in food_order.py is 'calculate_total' to match the import in main.py.
